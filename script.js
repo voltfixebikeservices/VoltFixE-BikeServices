@@ -28,21 +28,32 @@ document.addEventListener("DOMContentLoaded", () => {
    ========================================================= */
 
 function initLoader() {
-
     const loader = document.querySelector(".page-loader");
 
     if (!loader) return;
 
+    // Hide loader when page is fully loaded
     window.addEventListener("load", () => {
-
         setTimeout(() => {
-
             loader.classList.add("loaded");
 
-        }, 500);
+            // Completely remove it after animation
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 700);
 
+        }, 300);
     });
 
+    // Safety fallback - loader can never stay forever
+    setTimeout(() => {
+        loader.classList.add("loaded");
+
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 700);
+
+    }, 4000);
 }
 
 

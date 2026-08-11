@@ -1,249 +1,259 @@
 /* =========================================================
    VOLTFIX E-BIKE SERVICES
    MAIN JAVASCRIPT
-   ========================================================= */
+========================================================= */
+
+"use strict";
 
 
 /* =========================================================
-   DOM READY
-   ========================================================= */
+   01. SAFE SELECTOR
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+function $(selector) {
+    return document.querySelector(selector);
+}
 
-    initLoader();
-    initHeader();
-    initMobileMenu();
-    initRevealAnimations();
-    initPaymentTabs();
-    initSmoothScroll();
-    initVideoHandling();
-    initCounterAnimation();
-    initWhatsAppLinks();
+
+function $$(selector) {
+    return document.querySelectorAll(selector);
+}
+
+
+/* =========================================================
+   02. PAGE LOADER
+   Always removes the loader even if another script/element
+   is missing.
+========================================================= */
+
+function hideLoader() {
+
+    const loader = $(".page-loader");
+
+    if (!loader) return;
+
+    loader.classList.add("loaded");
+
+    document.body.classList.remove("no-scroll");
+
+}
+
+
+/* Hide after page finishes loading */
+window.addEventListener("load", function () {
+
+    setTimeout(hideLoader, 500);
+
+});
+
+
+/* Emergency fallback:
+   If something prevents window.load from completing,
+   the page will still become usable. */
+
+setTimeout(hideLoader, 4000);
+
+
+/* =========================================================
+   03. HEADER SCROLL EFFECT
+========================================================= */
+
+const header = $(".header");
+
+
+function updateHeader() {
+
+    if (!header) return;
+
+    if (window.scrollY > 40) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
+);
+
+
+updateHeader();
+
+
+/* =========================================================
+   04. MOBILE MENU
+========================================================= */
+
+const mobileMenuButton = $(".mobile-menu-button");
+const mobileNav = $(".mobile-nav");
+
+
+function closeMobileMenu() {
+
+    if (!mobileMenuButton || !mobileNav) return;
+
+    mobileMenuButton.classList.remove("open");
+
+    mobileNav.classList.remove("open");
+
+}
+
+
+function openMobileMenu() {
+
+    if (!mobileMenuButton || !mobileNav) return;
+
+    mobileMenuButton.classList.add("open");
+
+    mobileNav.classList.add("open");
+
+}
+
+
+if (mobileMenuButton && mobileNav) {
+
+    mobileMenuButton.addEventListener("click", function () {
+
+        const isOpen =
+            mobileNav.classList.contains("open");
+
+        if (isOpen) {
+
+            closeMobileMenu();
+
+        } else {
+
+            openMobileMenu();
+
+        }
+
+    });
+
+
+    /* Close when clicking navigation link */
+
+    mobileNav
+        .querySelectorAll("a")
+        .forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                closeMobileMenu();
+
+            });
+
+        });
+
+
+    /* Close when clicking outside */
+
+    document.addEventListener("click", function (event) {
+
+        if (
+            !mobileNav.contains(event.target) &&
+            !mobileMenuButton.contains(event.target)
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   05. CLOSE MOBILE MENU ON RESIZE
+========================================================= */
+
+window.addEventListener("resize", function () {
+
+    if (window.innerWidth > 900) {
+
+        closeMobileMenu();
+
+    }
 
 });
 
 
 /* =========================================================
-   PAGE LOADER
-   ========================================================= */
+   06. SMOOTH SCROLL
+========================================================= */
 
-function initLoader() {
-    const loader = document.querySelector(".page-loader");
+$$('a[href^="#"]').forEach(function (link) {
 
-    if (!loader) return;
+    link.addEventListener("click", function (event) {
 
-    // Hide loader when page is fully loaded
-    window.addEventListener("load", () => {
-        setTimeout(() => {
-            loader.classList.add("loaded");
-
-            // Completely remove it after animation
-            setTimeout(() => {
-                loader.style.display = "none";
-            }, 700);
-
-        }, 300);
-    });
-
-    // Safety fallback - loader can never stay forever
-    setTimeout(() => {
-        loader.classList.add("loaded");
-
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 700);
-
-    }, 4000);
-}
-
-
-/* =========================================================
-   HEADER SCROLL EFFECT
-   ========================================================= */
-
-function initHeader() {
-
-    const header = document.querySelector(".header");
-
-    if (!header) return;
-
-    function updateHeader() {
-
-        if (window.scrollY > 50) {
-
-            header.classList.add("scrolled");
-
-        } else {
-
-            header.classList.remove("scrolled");
-
-        }
-
-    }
-
-    updateHeader();
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        { passive: true }
-    );
-
-}
-
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-function initMobileMenu() {
-
-    const menuButton =
-        document.querySelector(".mobile-menu-button");
-
-    const mobileNav =
-        document.querySelector(".mobile-nav");
-
-    if (!menuButton || !mobileNav) return;
-
-
-    function closeMenu() {
-
-        menuButton.classList.remove("active");
-
-        mobileNav.classList.remove("active");
-
-        document.body.classList.remove("menu-open");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-
-    function openMenu() {
-
-        menuButton.classList.add("active");
-
-        mobileNav.classList.add("active");
-
-        document.body.classList.add("menu-open");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-    }
-
-
-    menuButton.addEventListener("click", () => {
-
-        const isOpen =
-            mobileNav.classList.contains("active");
-
-        if (isOpen) {
-
-            closeMenu();
-
-        } else {
-
-            openMenu();
-
-        }
-
-    });
-
-
-    /* Close when clicking a navigation link */
-
-    const mobileLinks =
-        mobileNav.querySelectorAll("a");
-
-    mobileLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            closeMenu();
-
-        });
-
-    });
-
-
-    /* Close with Escape */
-
-    document.addEventListener("keydown", event => {
+        const targetId =
+            this.getAttribute("href");
 
         if (
-            event.key === "Escape" &&
-            mobileNav.classList.contains("active")
+            !targetId ||
+            targetId === "#" ||
+            targetId.length < 2
         ) {
-
-            closeMenu();
-
+            return;
         }
 
-    });
+        const target =
+            document.querySelector(targetId);
 
+        if (!target) return;
 
-    /* Close if screen becomes desktop */
+        event.preventDefault();
 
-    window.addEventListener("resize", () => {
+        const headerHeight =
+            header ? header.offsetHeight : 0;
 
-        if (window.innerWidth > 768) {
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            headerHeight;
 
-            closeMenu();
+        window.scrollTo({
 
-        }
+            top: targetPosition,
 
-    });
-
-}
-
-
-/* =========================================================
-   SCROLL REVEAL ANIMATIONS
-   ========================================================= */
-
-function initRevealAnimations() {
-
-    const elements =
-        document.querySelectorAll(".reveal");
-
-    if (!elements.length) return;
-
-
-    /* Fallback for older browsers */
-
-    if (!("IntersectionObserver" in window)) {
-
-        elements.forEach(element => {
-
-            element.classList.add("visible");
+            behavior: "smooth"
 
         });
 
-        return;
+    });
 
-    }
+});
 
 
-    const observer =
+/* =========================================================
+   07. SCROLL REVEAL ANIMATION
+========================================================= */
+
+const revealElements = $$(".reveal");
+
+
+if (revealElements.length > 0) {
+
+    const revealObserver =
         new IntersectionObserver(
-            (entries, observer) => {
 
-                entries.forEach(entry => {
+            function (entries) {
+
+                entries.forEach(function (entry) {
 
                     if (entry.isIntersecting) {
 
-                        entry.target.classList.add(
-                            "visible"
-                        );
+                        entry.target.classList.add("visible");
 
-                        observer.unobserve(
+                        revealObserver.unobserve(
                             entry.target
                         );
 
@@ -252,81 +262,20 @@ function initRevealAnimations() {
                 });
 
             },
+
             {
                 threshold: 0.12,
 
-                rootMargin:
-                    "0px 0px -50px 0px"
+                rootMargin: "0px 0px -50px 0px"
+
             }
+
         );
 
 
-    elements.forEach(element => {
+    revealElements.forEach(function (element) {
 
-        observer.observe(element);
-
-    });
-
-}
-
-
-/* =========================================================
-   PAYMENT TABS
-   ========================================================= */
-
-function initPaymentTabs() {
-
-    const tabs =
-        document.querySelectorAll(".payment-tab");
-
-    const panels =
-        document.querySelectorAll(".payment-panel");
-
-    if (!tabs.length || !panels.length) return;
-
-
-    tabs.forEach(tab => {
-
-        tab.addEventListener("click", () => {
-
-            const target =
-                tab.getAttribute("data-payment");
-
-
-            /* Remove active state */
-
-            tabs.forEach(item => {
-
-                item.classList.remove("active");
-
-            });
-
-
-            panels.forEach(panel => {
-
-                panel.classList.remove("active");
-
-            });
-
-
-            /* Activate selected tab */
-
-            tab.classList.add("active");
-
-
-            const targetPanel =
-                document.querySelector(
-                    `.payment-panel[data-payment="${target}"]`
-                );
-
-
-            if (targetPanel) {
-
-                targetPanel.classList.add("active");
-
-            }
-
-        });
+        revealObserver.observe(element);
 
     });
 
@@ -334,111 +283,129 @@ function initPaymentTabs() {
 
 
 /* =========================================================
-   SMOOTH SCROLL
-   ========================================================= */
+   08. FALLBACK FOR REVEAL ELEMENTS
+========================================================= */
 
-function initSmoothScroll() {
+setTimeout(function () {
 
-    const links =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
+    revealElements.forEach(function (element) {
 
-
-    links.forEach(link => {
-
-        link.addEventListener("click", event => {
-
-            const targetId =
-                link.getAttribute("href");
-
-
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-
-                return;
-
-            }
-
-
-            const target =
-                document.querySelector(
-                    targetId
-                );
-
-
-            if (!target) return;
-
-
-            event.preventDefault();
-
-
-            const header =
-                document.querySelector(".header");
-
-
-            const headerHeight =
-                header
-                    ? header.offsetHeight
-                    : 0;
-
-
-            const targetPosition =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight;
-
-
-            window.scrollTo({
-
-                top: targetPosition,
-
-                behavior: "smooth"
-
-            });
-
-        });
+        element.classList.add("visible");
 
     });
 
-}
+}, 3500);
 
 
 /* =========================================================
-   HERO VIDEO HANDLING
-   ========================================================= */
+   09. ACTIVE NAVIGATION
+========================================================= */
 
-function initVideoHandling() {
+const sections =
+    $$("section[id]");
 
-    const video =
-        document.querySelector(".hero-video");
-
-    if (!video) return;
+const navLinks =
+    $$(".desktop-nav a");
 
 
-    /* Try autoplay */
+function updateActiveNavigation() {
 
-    const playVideo = () => {
+    if (
+        sections.length === 0 ||
+        navLinks.length === 0
+    ) {
+        return;
+    }
 
-        const promise =
-            video.play();
+    let currentSection = "";
+
+    const scrollPosition =
+        window.scrollY +
+        (header ? header.offsetHeight : 100) +
+        150;
+
+
+    sections.forEach(function (section) {
+
+        const sectionTop =
+            section.offsetTop;
+
+        const sectionBottom =
+            sectionTop +
+            section.offsetHeight;
 
 
         if (
-            promise !== undefined
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionBottom
         ) {
 
-            promise.catch(() => {
+            currentSection =
+                section.getAttribute("id");
 
-                /*
-                 Video autoplay may be blocked
-                 by the browser.
+        }
 
-                 The fallback background will
-                 remain visible.
-                */
+    });
+
+
+    navLinks.forEach(function (link) {
+
+        link.classList.remove("active");
+
+        const href =
+            link.getAttribute("href");
+
+        if (
+            href === "#" + currentSection
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateActiveNavigation,
+    { passive: true }
+);
+
+
+updateActiveNavigation();
+
+
+/* =========================================================
+   10. HERO VIDEO SUPPORT
+========================================================= */
+
+const heroVideo =
+    $(".hero-video");
+
+
+if (heroVideo) {
+
+    heroVideo.muted = true;
+
+    heroVideo.playsInline = true;
+
+    const playVideo = function () {
+
+        const promise =
+            heroVideo.play();
+
+        if (
+            promise &&
+            typeof promise.catch === "function"
+        ) {
+
+            promise.catch(function () {
+
+                /* Browser blocked autoplay.
+                   This is normal and not an error. */
 
             });
 
@@ -447,553 +414,375 @@ function initVideoHandling() {
     };
 
 
-    playVideo();
+    if (heroVideo.readyState >= 2) {
 
+        playVideo();
 
-    video.addEventListener(
-        "canplay",
-        playVideo
-    );
+    } else {
 
+        heroVideo.addEventListener(
+            "canplay",
+            playVideo,
+            { once: true }
+        );
 
-    /* Pause video when page is hidden */
-
-    document.addEventListener(
-        "visibilitychange",
-        () => {
-
-            if (
-                document.hidden
-            ) {
-
-                video.pause();
-
-            } else {
-
-                playVideo();
-
-            }
-
-        }
-    );
+    }
 
 }
 
 
 /* =========================================================
-   NUMBER COUNTER ANIMATION
-   ========================================================= */
+   11. VIDEO VISIBILITY
+========================================================= */
 
-function initCounterAnimation() {
+if (heroVideo) {
 
-    const counters =
-        document.querySelectorAll(
-            "[data-counter]"
-        );
-
-    if (!counters.length) return;
-
-
-    if (!("IntersectionObserver" in window)) {
-
-        counters.forEach(counter => {
-
-            counter.textContent =
-                counter.dataset.counter;
-
-        });
-
-        return;
-
-    }
-
-
-    const observer =
+    const videoObserver =
         new IntersectionObserver(
-            entries => {
 
-                entries.forEach(entry => {
+            function (entries) {
 
-                    if (
-                        !entry.isIntersecting
-                    ) {
+                entries.forEach(function (entry) {
 
-                        return;
+                    if (entry.isIntersecting) {
+
+                        heroVideo.play()
+                            .catch(function () {});
+
+                    } else {
+
+                        heroVideo.pause();
 
                     }
-
-
-                    const counter =
-                        entry.target;
-
-
-                    animateCounter(counter);
-
-
-                    observer.unobserve(counter);
 
                 });
 
             },
+
             {
-                threshold: 0.5
-            }
-        );
-
-
-    counters.forEach(counter => {
-
-        observer.observe(counter);
-
-    });
-
-}
-
-
-/* =========================================================
-   COUNTER FUNCTION
-   ========================================================= */
-
-function animateCounter(counter) {
-
-    const target =
-        parseFloat(
-            counter.dataset.counter
-        );
-
-
-    if (Number.isNaN(target)) return;
-
-
-    const duration = 1500;
-
-    const startTime =
-        performance.now();
-
-
-    function update(currentTime) {
-
-        const elapsed =
-            currentTime - startTime;
-
-
-        const progress =
-            Math.min(
-                elapsed / duration,
-                1
-            );
-
-
-        /* Ease out */
-
-        const eased =
-            1 -
-            Math.pow(
-                1 - progress,
-                3
-            );
-
-
-        const value =
-            target * eased;
-
-
-        if (
-            Number.isInteger(target)
-        ) {
-
-            counter.textContent =
-                Math.floor(value);
-
-        } else {
-
-            counter.textContent =
-                value.toFixed(1);
-
-        }
-
-
-        if (progress < 1) {
-
-            requestAnimationFrame(update);
-
-        } else {
-
-            counter.textContent =
-                target;
-
-        }
-
-    }
-
-
-    requestAnimationFrame(update);
-
-}
-
-
-/* =========================================================
-   WHATSAPP LINKS
-   ========================================================= */
-
-function initWhatsAppLinks() {
-
-    const phoneNumber =
-        "923021275983";
-
-
-    const defaultMessage =
-        "Hello VoltFix E-Bike Services, I would like to know more about your services.";
-
-
-    const whatsappLinks =
-        document.querySelectorAll(
-            "[data-whatsapp]"
-        );
-
-
-    whatsappLinks.forEach(link => {
-
-        const customMessage =
-            link.dataset.whatsapp ||
-            defaultMessage;
-
-
-        const whatsappURL =
-            `https://wa.me/${phoneNumber}?text=${encodeURIComponent(customMessage)}`;
-
-
-        link.setAttribute(
-            "href",
-            whatsappURL
-        );
-
-
-        link.setAttribute(
-            "target",
-            "_blank"
-        );
-
-
-        link.setAttribute(
-            "rel",
-            "noopener noreferrer"
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   ACTIVE NAVIGATION
-   ========================================================= */
-
-function initActiveNavigation() {
-
-    const sections =
-        document.querySelectorAll(
-            "section[id]"
-        );
-
-
-    const navLinks =
-        document.querySelectorAll(
-            '.desktop-nav a[href^="#"]'
-        );
-
-
-    if (
-        !sections.length ||
-        !navLinks.length
-    ) {
-
-        return;
-
-    }
-
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (
-                        !entry.isIntersecting
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    const id =
-                        entry.target.id;
-
-
-                    navLinks.forEach(link => {
-
-                        link.classList.remove(
-                            "active"
-                        );
-
-
-                        if (
-                            link.getAttribute(
-                                "href"
-                            ) === `#${id}`
-                        ) {
-
-                            link.classList.add(
-                                "active"
-                            );
-
-                        }
-
-                    });
-
-                });
-
-            },
-            {
-                rootMargin:
-                    "-35% 0px -55% 0px"
-            }
-        );
-
-
-    sections.forEach(section => {
-
-        observer.observe(section);
-
-    });
-
-}
-
-
-/* =========================================================
-   COPY PAYMENT NUMBER
-   ========================================================= */
-
-function initCopyPaymentNumber() {
-
-    const copyButtons =
-        document.querySelectorAll(
-            "[data-copy]"
-        );
-
-
-    copyButtons.forEach(button => {
-
-        button.addEventListener(
-            "click",
-            async () => {
-
-                const value =
-                    button.dataset.copy;
-
-
-                if (!value) return;
-
-
-                try {
-
-                    await navigator.clipboard.writeText(
-                        value
-                    );
-
-
-                    const originalText =
-                        button.textContent;
-
-
-                    button.textContent =
-                        "COPIED";
-
-
-                    setTimeout(() => {
-
-                        button.textContent =
-                            originalText;
-
-                    }, 1500);
-
-
-                } catch (error) {
-
-                    console.log(
-                        "Copy failed:",
-                        error
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   BACK TO TOP
-   ========================================================= */
-
-function createBackToTop() {
-
-    const button =
-        document.querySelector(
-            ".back-to-top"
-        );
-
-
-    if (!button) return;
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (window.scrollY > 600) {
-
-                button.classList.add(
-                    "show"
-                );
-
-            } else {
-
-                button.classList.remove(
-                    "show"
-                );
+                threshold: 0.1
 
             }
 
-        },
-        { passive: true }
+        );
+
+
+    videoObserver.observe(heroVideo);
+
+}
+
+
+/* =========================================================
+   12. SERVICE CARD ANIMATION
+========================================================= */
+
+const serviceCards =
+    $$(".service-card");
+
+
+serviceCards.forEach(function (card, index) {
+
+    card.style.transitionDelay =
+        `${index * 40}ms`;
+
+});
+
+
+/* =========================================================
+   13. CONTACT WHATSAPP BUTTONS
+========================================================= */
+
+const whatsappNumber =
+    "923021275983";
+
+
+const defaultWhatsAppMessage =
+    "Hello VoltFix E-Bike Services, I would like to know more about your e-bike repair and service options.";
+
+
+function openWhatsApp(message) {
+
+    const text =
+        encodeURIComponent(
+            message || defaultWhatsAppMessage
+        );
+
+
+    const url =
+        `https://wa.me/${whatsappNumber}?text=${text}`;
+
+
+    window.open(
+        url,
+        "_blank",
+        "noopener,noreferrer"
     );
 
+}
+
+
+/* Automatically handle elements
+   having data-whatsapp */
+
+$$("[data-whatsapp]").forEach(function (button) {
+
+    button.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        const message =
+            this.getAttribute("data-whatsapp");
+
+        openWhatsApp(message);
+
+    });
+
+});
+
+
+/* =========================================================
+   14. CONTACT FORM
+   Safe even if form doesn't exist yet.
+========================================================= */
+
+const contactForm =
+    $("#contactForm");
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            const nameInput =
+                contactForm.querySelector(
+                    '[name="name"]'
+                );
+
+            const serviceInput =
+                contactForm.querySelector(
+                    '[name="service"]'
+                );
+
+            const messageInput =
+                contactForm.querySelector(
+                    '[name="message"]'
+                );
+
+
+            const name =
+                nameInput ?
+                nameInput.value.trim() :
+                "";
+
+
+            const service =
+                serviceInput ?
+                serviceInput.value.trim() :
+                "";
+
+
+            const message =
+                messageInput ?
+                messageInput.value.trim() :
+                "";
+
+
+            let whatsappMessage =
+                "Hello VoltFix E-Bike Services.";
+
+
+            if (name) {
+
+                whatsappMessage +=
+                    `%0A%0AName: ${encodeURIComponent(name)}`;
+
+            }
+
+
+            if (service) {
+
+                whatsappMessage +=
+                    `%0AService: ${encodeURIComponent(service)}`;
+
+            }
+
+
+            if (message) {
+
+                whatsappMessage +=
+                    `%0AMessage: ${encodeURIComponent(message)}`;
+
+            }
+
+
+            window.open(
+                `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   15. IMAGE PLACEHOLDER HELPER
+========================================================= */
+
+function replacePlaceholder(
+    selector,
+    imagePath,
+    altText
+) {
+
+    const placeholder =
+        document.querySelector(selector);
+
+    if (!placeholder) return;
+
+
+    const image =
+        document.createElement("img");
+
+
+    image.src = imagePath;
+
+    image.alt =
+        altText || "VoltFix E-Bike Services";
+
+
+    image.loading = "lazy";
+
+
+    image.addEventListener(
+        "error",
+        function () {
+
+            image.remove();
+
+        }
+    );
+
+
+    placeholder.replaceWith(image);
+
+}
+
+
+/* =========================================================
+   16. CURRENT YEAR
+========================================================= */
+
+const currentYear =
+    new Date().getFullYear();
+
+
+$$("[data-current-year]")
+    .forEach(function (element) {
+
+        element.textContent =
+            currentYear;
+
+    });
+
+
+/* =========================================================
+   17. BUTTON RIPPLE EFFECT
+========================================================= */
+
+$$(".btn").forEach(function (button) {
 
     button.addEventListener(
         "click",
-        () => {
+        function (event) {
 
-            window.scrollTo({
+            const ripple =
+                document.createElement("span");
 
-                top: 0,
 
-                behavior: "smooth"
+            ripple.classList.add(
+                "button-ripple"
+            );
 
-            });
+
+            const rect =
+                button.getBoundingClientRect();
+
+
+            ripple.style.left =
+                `${event.clientX - rect.left}px`;
+
+
+            ripple.style.top =
+                `${event.clientY - rect.top}px`;
+
+
+            button.appendChild(ripple);
+
+
+            setTimeout(function () {
+
+                ripple.remove();
+
+            }, 600);
 
         }
     );
 
-}
+});
 
 
 /* =========================================================
-   LAZY LOAD IMAGES
-   ========================================================= */
+   18. ESCAPE KEY
+========================================================= */
 
-function initLazyImages() {
+document.addEventListener(
+    "keydown",
+    function (event) {
 
-    const images =
-        document.querySelectorAll(
-            "img[data-src]"
-        );
+        if (event.key === "Escape") {
 
+            closeMobileMenu();
 
-    if (!images.length) return;
-
-
-    if (
-        !("IntersectionObserver" in window)
-    ) {
-
-        images.forEach(img => {
-
-            img.src =
-                img.dataset.src;
-
-        });
-
-        return;
+        }
 
     }
-
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (
-                        !entry.isIntersecting
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    const img =
-                        entry.target;
-
-
-                    img.src =
-                        img.dataset.src;
-
-
-                    img.removeAttribute(
-                        "data-src"
-                    );
-
-
-                    observer.unobserve(img);
-
-                });
-
-            },
-            {
-                rootMargin:
-                    "200px"
-            }
-        );
-
-
-    images.forEach(image => {
-
-        observer.observe(image);
-
-    });
-
-}
+);
 
 
 /* =========================================================
-   INITIALIZE OPTIONAL FEATURES
-   ========================================================= */
+   19. PREVENT BROKEN EMPTY LINKS
+========================================================= */
 
-initActiveNavigation();
-initCopyPaymentNumber();
-createBackToTop();
-initLazyImages();
+$$('a[href="#"]').forEach(function (link) {
+
+    link.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+        }
+    );
+
+});
 
 
 /* =========================================================
-   CONSOLE MESSAGE
-   ========================================================= */
+   20. PAGE READY
+========================================================= */
 
-console.log(
-    "%cVoltFix E-Bike Services",
-    "font-size:18px;font-weight:bold;color:#9A2727;"
+document.documentElement.classList.add(
+    "js-ready"
 );
 
 
 console.log(
-    "%cWebsite initialized successfully.",
-    "color:#CCBA45;"
+    "VoltFix E-Bike Services website loaded successfully."
 );

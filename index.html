@@ -1,628 +1,2179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>VOLTFiX E-Bike Services | Karachi</title>
+<head>
+
+    <!-- =====================================================
+         VOLTFIX E-BIKE SERVICES
+         Lambert-inspired website structure
+         ===================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
           content="VOLTFiX E-Bike Services - Professional electric bike repair, maintenance and home service in Karachi.">
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="keywords"
+          content="VOLTFiX, E-Bike Repair Karachi, Electric Bike Service Karachi, E-Bike Battery Repair, E-Bike Motor Repair">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="author"
+          content="VOLTFiX E-Bike Services">
 
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    <title>
+        VOLTFiX E-Bike Services | Karachi
+    </title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+         ===================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
+
+
+    <!-- =====================================================
+         MAIN CSS
+         ===================================================== -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
 </head>
+
 
 <body>
 
-<!-- ================= HEADER ================= -->
 
-<header class="header">
+<!-- =========================================================
+     PRELOADER
+     ========================================================= -->
 
-    <a href="#home" class="logo">
-        VOLT<span>FiX</span>
+<div id="preloader">
+
+    <div class="preloader-inner">
+
+        <div class="preloader-logo">
+            VOLT<span>FiX</span>
+        </div>
+
+        <div class="preloader-line">
+            <span></span>
+        </div>
+
+        <div class="preloader-text">
+            E-BIKE SERVICES
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MOBILE MENU
+     ========================================================= -->
+
+<div class="mobile-menu"
+     id="mobileMenu">
+
+    <button class="mobile-menu-close"
+            id="mobileMenuClose"
+            type="button">
+
+        ×
+
+    </button>
+
+
+    <div class="mobile-menu-inner">
+
+        <div class="mobile-logo">
+            VOLT<span>FiX</span>
+        </div>
+
+
+        <nav class="mobile-navigation">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#brands">
+                Brands
+            </a>
+
+            <a href="#work">
+                Our Work
+            </a>
+
+            <a href="#team">
+                Team
+            </a>
+
+            <a href="#reviews">
+                Reviews
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="mobile-socials">
+
+            <a href="#"
+               aria-label="Facebook">
+
+                Facebook
+
+            </a>
+
+            <a href="#"
+               aria-label="Instagram">
+
+                Instagram
+
+            </a>
+
+            <a href="#"
+               aria-label="TikTok">
+
+                TikTok
+
+            </a>
+
+            <a href="#"
+               aria-label="YouTube">
+
+                YouTube
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header"
+        id="siteHeader">
+
+
+    <!-- Social media -->
+
+    <div class="header-socials">
+
+        <a href="#"
+           aria-label="Facebook">
+
+            FB
+
+        </a>
+
+        <a href="#"
+           aria-label="Instagram">
+
+            IG
+
+        </a>
+
+        <a href="#"
+           aria-label="TikTok">
+
+            TK
+
+        </a>
+
+        <a href="#"
+           aria-label="YouTube">
+
+            YT
+
+        </a>
+
+    </div>
+
+
+
+    <!-- Main logo -->
+
+    <a href="#home"
+       class="site-logo"
+       aria-label="VOLTFiX Home">
+
+        <span class="logo-main">
+            VOLT<span>FiX</span>
+        </span>
+
+        <span class="logo-sub">
+            E-BIKE SERVICES
+        </span>
+
     </a>
 
-    <nav class="navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#brands">Brands</a>
-        <a href="#work">Our Work</a>
-        <a href="#contact">Contact</a>
+
+
+    <!-- Desktop navigation -->
+
+    <nav class="main-navigation">
+
+        <a href="#home"
+           class="active">
+
+            Home
+
+        </a>
+
+        <a href="#about">
+
+            About
+
+        </a>
+
+        <a href="#services">
+
+            Services
+
+        </a>
+
+        <a href="#brands">
+
+            Brands
+
+        </a>
+
+        <a href="#work">
+
+            Our Work
+
+        </a>
+
+        <a href="#contact">
+
+            Contact
+
+        </a>
+
     </nav>
 
-    <a href="#booking" class="header-button">
-        Book Service
-    </a>
+
+
+    <!-- Mobile menu button -->
+
+    <button class="mobile-menu-button"
+            id="mobileMenuButton"
+            type="button"
+            aria-label="Open menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
 
-<section id="home" class="hero">
+<!-- =========================================================
+     HERO SECTION
+     ========================================================= -->
 
-    <div class="hero-background"></div>
+<section id="home"
+         class="hero-section">
 
-    <div class="hero-content">
 
-        <p class="small-title">
-            KARACHI'S E-BIKE SERVICE
-        </p>
+    <!-- Hero background slider -->
 
-        <h1>
-            E-Bike Band?
-            <br>
-            <span>Tension Nahi — VOLTFiX Hai!</span>
-        </h1>
+    <div class="hero-slider"
+         id="heroSlider">
 
-        <p class="hero-description">
-            Professional electric bike repair, maintenance and
-            home service. Fast, reliable and trusted.
-        </p>
 
-        <div class="hero-buttons">
+        <!-- Slide 01 -->
 
-            <a href="#booking" class="button button-white">
-                Book A Service
-            </a>
+        <div class="hero-slide active">
 
-            <a href="#services" class="button button-outline">
-                Our Services
-            </a>
+            <div class="hero-slide-background hero-bg-1"></div>
 
-        </div>
+            <div class="hero-overlay"></div>
 
-    </div>
 
-    <div class="scroll-text">
-        SCROLL DOWN ↓
-    </div>
+            <div class="hero-content">
 
-</section>
+                <div class="hero-number">
+                    01
+                </div>
 
+                <div class="hero-small-title">
+                    KARACHI E-BIKE SERVICE
+                </div>
 
-<!-- ================= ABOUT ================= -->
+                <h1>
 
-<section id="about" class="section about">
+                    E-Bike Band?
 
-    <div class="about-title">
+                    <span>
+                        Tension Nahi —
+                    </span>
 
-        <p class="small-title">
-            ABOUT VOLTFIX
-        </p>
+                    <strong>
+                        VOLTFiX Hai!
+                    </strong>
 
-        <h2>
-            We keep your
-            <br>
-            <span>electric ride moving.</span>
-        </h2>
+                </h1>
 
-    </div>
 
+                <p>
 
-    <div class="about-content">
+                    Professional electric bike repair,
+                    maintenance and home service.
 
-        <p>
-            VOLTFiX E-Bike Services provides professional electric
-            bike repair and maintenance services in Karachi.
-        </p>
+                </p>
 
-        <p>
-            Our goal is simple — provide reliable repair work,
-            convenient home service and professional support for
-            electric bike owners.
-        </p>
 
+                <div class="hero-buttons">
 
-        <div class="statistics">
+                    <a href="#booking"
+                       class="btn btn-primary">
 
-            <div class="stat">
-                <strong>500+</strong>
-                <span>Services</span>
-            </div>
+                        Book A Service
 
-            <div class="stat">
-                <strong>9+</strong>
-                <span>Major Brands</span>
-            </div>
+                    </a>
 
-            <div class="stat">
-                <strong>24/7</strong>
-                <span>Booking</span>
-            </div>
+                    <a href="#services"
+                       class="btn btn-light">
 
-        </div>
+                        Explore Services
 
-    </div>
+                    </a>
 
-</section>
+                </div>
 
-
-<!-- ================= SERVICES ================= -->
-
-<section id="services" class="section dark">
-
-    <div class="section-heading">
-
-        <p class="small-title">
-            WHAT WE DO
-        </p>
-
-        <h2>
-            Our <span>Services</span>
-        </h2>
-
-    </div>
-
-
-    <div class="service-grid">
-
-        <div class="service-card">
-            <span>01</span>
-
-            <h3>
-                E-Bike Repair
-            </h3>
-
-            <p>
-                Complete inspection and repair for electric bikes.
-            </p>
-        </div>
-
-
-        <div class="service-card">
-            <span>02</span>
-
-            <h3>
-                Battery Work
-            </h3>
-
-            <p>
-                Battery inspection, repair and replacement guidance.
-            </p>
-        </div>
-
-
-        <div class="service-card">
-            <span>03</span>
-
-            <h3>
-                Motor & Controller
-            </h3>
-
-            <p>
-                Motor and controller troubleshooting and repair.
-            </p>
-        </div>
-
-
-        <div class="service-card">
-            <span>04</span>
-
-            <h3>
-                Wiring & Electrical
-            </h3>
-
-            <p>
-                Electrical wiring, connectors and system repairs.
-            </p>
-        </div>
-
-
-        <div class="service-card">
-            <span>05</span>
-
-            <h3>
-                Brakes & Mechanical
-            </h3>
-
-            <p>
-                Brake, wheel and general mechanical maintenance.
-            </p>
-        </div>
-
-
-        <div class="service-card">
-            <span>06</span>
-
-            <h3>
-                Home Service
-            </h3>
-
-            <p>
-                Professional e-bike service at your location.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= BRANDS ================= -->
-
-<section id="brands" class="section brands">
-
-    <div class="section-heading">
-
-        <p class="small-title">
-            BRANDS
-        </p>
-
-        <h2>
-            Brands We <span>Service</span>
-        </h2>
-
-    </div>
-
-
-    <div class="brand-grid">
-
-        <div>REVOO</div>
-        <div>EVEE</div>
-        <div>OKLA</div>
-
-        <div>ELFA</div>
-        <div>VELECTRA</div>
-        <div>YADEA</div>
-
-        <div>TAILG</div>
-        <div>JOLTA</div>
-        <div>+ OTHER BRANDS</div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= OUR WORK ================= -->
-
-<section id="work" class="section dark">
-
-    <div class="section-heading">
-
-        <p class="small-title">
-            OUR WORK
-        </p>
-
-        <h2>
-            Real Repairs.
-            <br>
-            <span>Real Results.</span>
-        </h2>
-
-    </div>
-
-
-    <div class="work-grid">
-
-        <div class="work-box work-one">
-
-            <div>
-                <strong>VOLTFiX</strong>
-                <small>Repair Service</small>
             </div>
 
         </div>
 
 
-        <div class="work-box work-two">
 
-            <div>
-                <strong>E-BIKE</strong>
-                <small>Electrical Service</small>
+        <!-- Slide 02 -->
+
+        <div class="hero-slide">
+
+            <div class="hero-slide-background hero-bg-2"></div>
+
+            <div class="hero-overlay"></div>
+
+
+            <div class="hero-content">
+
+                <div class="hero-number">
+                    02
+                </div>
+
+                <div class="hero-small-title">
+                    PROFESSIONAL REPAIR
+                </div>
+
+                <h1>
+
+                    Your E-Bike.
+
+                    <span>
+                        Our
+                    </span>
+
+                    <strong>
+                        Expertise.
+                    </strong>
+
+                </h1>
+
+
+                <p>
+
+                    From electrical faults to mechanical
+                    issues, VOLTFiX keeps your ride moving.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#services"
+                       class="btn btn-primary">
+
+                        Our Services
+
+                    </a>
+
+                    <a href="#contact"
+                       class="btn btn-light">
+
+                        Contact Us
+
+                    </a>
+
+                </div>
+
             </div>
 
         </div>
 
 
-        <div class="work-box work-three">
 
-            <div>
-                <strong>HOME SERVICE</strong>
-                <small>Karachi</small>
+        <!-- Slide 03 -->
+
+        <div class="hero-slide">
+
+            <div class="hero-slide-background hero-bg-3"></div>
+
+            <div class="hero-overlay"></div>
+
+
+            <div class="hero-content">
+
+                <div class="hero-number">
+                    03
+                </div>
+
+                <div class="hero-small-title">
+                    HOME SERVICE
+                </div>
+
+                <h1>
+
+                    We Come
+
+                    <span>
+                        To
+                    </span>
+
+                    <strong>
+                        You.
+                    </strong>
+
+                </h1>
+
+
+                <p>
+
+                    Convenient e-bike service at your
+                    location in Karachi.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#booking"
+                       class="btn btn-primary">
+
+                        Request Home Service
+
+                    </a>
+
+                </div>
+
             </div>
 
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- ================= WHY VOLTFIX ================= -->
-
-<section class="section why">
-
-    <div class="section-heading">
-
-        <p class="small-title">
-            WHY VOLTFIX
-        </p>
-
-        <h2>
-            Professional.
-            <br>
-            <span>Reliable. Trusted.</span>
-        </h2>
 
     </div>
 
 
-    <div class="why-grid">
 
-        <div>
-            <strong>01</strong>
-            <h3>Expert Technician</h3>
-            <p>
-                Professional repair work with attention to detail.
-            </p>
-        </div>
+    <!-- Hero navigation -->
 
-        <div>
-            <strong>02</strong>
-            <h3>Home Service</h3>
-            <p>
-                Get your electric bike serviced at your location.
-            </p>
-        </div>
+    <div class="hero-navigation">
 
-        <div>
-            <strong>03</strong>
-            <h3>Fast Response</h3>
-            <p>
-                We focus on convenient and dependable service.
-            </p>
-        </div>
+        <button class="hero-arrow hero-prev"
+                type="button"
+                aria-label="Previous slide">
 
-        <div>
-            <strong>04</strong>
-            <h3>Multiple Brands</h3>
-            <p>
-                We work with major electric bike brands.
-            </p>
-        </div>
+            ←
 
-    </div>
-
-</section>
-
-
-<!-- ================= BOOKING ================= -->
-
-<section id="booking" class="section booking dark">
-
-    <div class="booking-info">
-
-        <p class="small-title">
-            BOOK A SERVICE
-        </p>
-
-        <h2>
-            Need a
-            <br>
-            <span>repair?</span>
-        </h2>
-
-        <p>
-            Fill out the form and send your service request
-            directly through WhatsApp.
-        </p>
-
-    </div>
-
-
-    <form id="bookingForm" class="booking-form">
-
-        <input
-            type="text"
-            id="customerName"
-            placeholder="Your Name"
-            required
-        >
-
-        <input
-            type="text"
-            id="bikeModel"
-            placeholder="Bike Brand / Model"
-            required
-        >
-
-        <input
-            type="text"
-            id="area"
-            placeholder="Your Area in Karachi"
-            required
-        >
-
-        <select id="serviceType">
-
-            <option value="E-Bike Repair">
-                E-Bike Repair
-            </option>
-
-            <option value="Battery">
-                Battery
-            </option>
-
-            <option value="Motor / Controller">
-                Motor / Controller
-            </option>
-
-            <option value="Wiring / Electrical">
-                Wiring / Electrical
-            </option>
-
-            <option value="Brakes / Mechanical">
-                Brakes / Mechanical
-            </option>
-
-            <option value="Home Service">
-                Home Service
-            </option>
-
-        </select>
-
-
-        <textarea
-            id="problem"
-            placeholder="Describe the problem"
-            required
-        ></textarea>
-
-
-        <button
-            type="submit"
-            class="button button-white submit-button"
-        >
-            Send Booking on WhatsApp
         </button>
 
-    </form>
 
-</section>
+        <div class="hero-dots">
+
+            <button class="hero-dot active"
+                    data-slide="0"
+                    type="button">
+
+                01
+
+            </button>
+
+            <button class="hero-dot"
+                    data-slide="1"
+                    type="button">
+
+                02
+
+            </button>
+
+            <button class="hero-dot"
+                    data-slide="2"
+                    type="button">
+
+                03
+
+            </button>
+
+        </div>
 
 
-<!-- ================= CONTACT ================= -->
+        <button class="hero-arrow hero-next"
+                type="button"
+                aria-label="Next slide">
 
-<section id="contact" class="section dark contact">
+            →
 
-    <div class="section-heading">
-
-        <p class="small-title">
-            GET IN TOUCH
-        </p>
-
-        <h2>
-            VOLTFiX
-            <span>Karachi</span>
-        </h2>
+        </button>
 
     </div>
 
 
-    <div class="contact-grid">
+
+    <!-- Scroll indicator -->
+
+    <a href="#about"
+       class="hero-scroll">
+
+        <span>
+            Scroll
+        </span>
+
+        <i>
+            ↓
+        </i>
+
+    </a>
 
 
-        <div class="contact-card">
+</section>
 
-            <small>
-                LOCATION
-            </small>
 
-            <h3>
-                Karachi, Pakistan
-            </h3>
+
+<!-- =========================================================
+     ABOUT SECTION
+     ========================================================= -->
+
+<section id="about"
+         class="about-section section">
+
+
+    <div class="container">
+
+
+        <div class="section-intro">
+
+            <div class="section-label">
+                ABOUT VOLTFIX
+            </div>
+
+
+            <h2>
+
+                We keep your
+
+                <span>
+                    electric ride
+                </span>
+
+                moving.
+
+            </h2>
+
+
+            <div class="section-number">
+                01
+            </div>
+
+        </div>
+
+
+
+        <div class="about-layout">
+
+
+            <!-- Left content -->
+
+            <div class="about-text">
+
+                <p class="large-text">
+
+                    VOLTFiX E-Bike Services is built
+                    around one simple idea:
+
+                    <strong>
+                        your electric bike should
+                        never leave you stranded.
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    We provide professional electric
+                    bike repair and maintenance services
+                    in Karachi.
+
+                </p>
+
+
+                <p>
+
+                    Our technicians work on electrical,
+                    mechanical and performance-related
+                    issues across major electric bike
+                    brands.
+
+                </p>
+
+
+                <a href="#services"
+                   class="text-button">
+
+                    Discover Our Services
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Right image area -->
+
+            <div class="about-image-wrapper">
+
+                <div class="about-image about-image-main">
+
+                    <div class="image-placeholder-content">
+
+                        <span>
+                            VOLTFiX
+                        </span>
+
+                        <small>
+                            E-BIKE SERVICE
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-image-small">
+
+                    <span>
+                        PROFESSIONAL
+                    </span>
+
+                    <span>
+                        RELIABLE
+                    </span>
+
+                    <span>
+                        TRUSTED
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FULLSCREEN PARALLAX SECTION
+     ========================================================= -->
+
+<section class="parallax-section parallax-one">
+
+
+    <div class="parallax-overlay"></div>
+
+
+    <div class="parallax-content">
+
+        <div class="section-label">
+            HOME SERVICE
+        </div>
+
+
+        <h2>
+
+            Your Bike.
+            <br>
+
+            <span>
+                Our Workshop.
+            </span>
+
+            <br>
+
+            <strong>
+                Your Location.
+            </strong>
+
+        </h2>
+
+
+        <a href="#booking"
+           class="btn btn-primary">
+
+            Book Home Service
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICES SECTION
+     ========================================================= -->
+
+<section id="services"
+         class="services-section section">
+
+
+    <div class="container">
+
+
+        <div class="section-intro">
+
+            <div class="section-label">
+                WHAT WE DO
+            </div>
+
+
+            <h2>
+
+                Our
+
+                <span>
+                    Services
+                </span>
+
+            </h2>
+
+
+            <div class="section-number">
+                02
+            </div>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+            <!-- Service 01 -->
+
+            <article class="service-item">
+
+                <div class="service-number">
+                    01
+                </div>
+
+
+                <div class="service-icon">
+                    ⚡
+                </div>
+
+
+                <h3>
+                    E-Bike Repair
+                </h3>
+
+
+                <p>
+
+                    Complete electric bike
+                    inspection, troubleshooting
+                    and repair.
+
+                </p>
+
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </article>
+
+
+
+            <!-- Service 02 -->
+
+            <article class="service-item">
+
+                <div class="service-number">
+                    02
+                </div>
+
+
+                <div class="service-icon">
+                    ◉
+                </div>
+
+
+                <h3>
+                    Battery Work
+                </h3>
+
+
+                <p>
+
+                    Battery-related inspection,
+                    repair and replacement guidance.
+
+                </p>
+
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </article>
+
+
+
+            <!-- Service 03 -->
+
+            <article class="service-item">
+
+                <div class="service-number">
+                    03
+                </div>
+
+
+                <div class="service-icon">
+                    ⚙
+                </div>
+
+
+                <h3>
+                    Motor & Controller
+                </h3>
+
+
+                <p>
+
+                    Motor and controller
+                    troubleshooting and repair.
+
+                </p>
+
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </article>
+
+
+
+            <!-- Service 04 -->
+
+            <article class="service-item">
+
+                <div class="service-number">
+                    04
+                </div>
+
+
+                <div class="service-icon">
+                    ⌁
+                </div>
+
+
+                <h3>
+                    Wiring & Electrical
+                </h3>
+
+
+                <p>
+
+                    Wiring, connectors, switches
+                    and electrical system repairs.
+
+                </p>
+
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </article>
+
+
+
+            <!-- Service 05 -->
+
+            <article class="service-item">
+
+                <div class="service-number">
+                    05
+                </div>
+
+
+                <div class="service-icon">
+                    ◇
+                </div>
+
+
+                <h3>
+                    Brakes & Mechanical
+                </h3>
+
+
+                <p>
+
+                    Brake, wheel and general
+                    mechanical maintenance.
+
+                </p>
+
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </article>
+
+
+
+            <!-- Service 06 -->
+
+            <article class="service-item">
+
+                <div class="service-number">
+                    06
+                </div>
+
+
+                <div class="service-icon">
+                    ⌖
+                </div>
+
+
+                <h3>
+                    Home Service
+                </h3>
+
+
+                <p>
+
+                    Professional e-bike service
+                    at your location in Karachi.
+
+                </p>
+
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PARALLAX SECTION 02
+     ========================================================= -->
+
+<section class="parallax-section parallax-two">
+
+
+    <div class="parallax-overlay"></div>
+
+
+    <div class="parallax-content center">
+
+        <div class="section-label">
+            VOLTFIX EXPERIENCE
+        </div>
+
+
+        <h2>
+
+            Fast.
+
+            <span>
+                Reliable.
+            </span>
+
+            Trusted.
+
+        </h2>
+
+
+        <p>
+
+            Professional service for
+            electric bike owners in Karachi.
+
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     BRANDS SECTION
+     ========================================================= -->
+
+<section id="brands"
+         class="brands-section section">
+
+
+    <div class="container">
+
+
+        <div class="section-intro">
+
+            <div class="section-label">
+                BRANDS
+            </div>
+
+
+            <h2>
+
+                Brands We
+
+                <span>
+                    Service
+                </span>
+
+            </h2>
+
+
+            <div class="section-number">
+                03
+            </div>
+
+        </div>
+
+
+
+        <div class="brands-layout">
+
+
+            <div class="brands-description">
+
+                <p>
+
+                    We work with major electric
+                    bike brands and models.
+
+                </p>
+
+
+                <p>
+
+                    If your brand isn't listed,
+                    contact VOLTFiX and we'll
+                    check whether we can help.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="brands-list">
+
+
+                <div class="brand-name">
+                    REVOO
+                </div>
+
+                <div class="brand-name">
+                    EVEE
+                </div>
+
+                <div class="brand-name">
+                    OKLA
+                </div>
+
+                <div class="brand-name">
+                    ELFA
+                </div>
+
+                <div class="brand-name">
+                    VELECTRA
+                </div>
+
+                <div class="brand-name">
+                    YADEA
+                </div>
+
+                <div class="brand-name">
+                    TAILG
+                </div>
+
+                <div class="brand-name">
+                    JOLTA
+                </div>
+
+                <div class="brand-name">
+                    OTHER BRANDS
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     OUR WORK SECTION
+     ========================================================= -->
+
+<section id="work"
+         class="work-section section">
+
+
+    <div class="container">
+
+
+        <div class="section-intro">
+
+            <div class="section-label">
+                OUR WORK
+            </div>
+
+
+            <h2>
+
+                Real Repairs.
+
+                <span>
+                    Real Results.
+                </span>
+
+            </h2>
+
+
+            <div class="section-number">
+                04
+            </div>
+
+        </div>
+
+
+
+        <div class="work-slider"
+             id="workSlider">
+
+
+            <div class="work-slide active">
+
+                <div class="work-image work-image-1">
+
+                    <div class="work-overlay">
+
+                        <div>
+
+                            <small>
+                                VOLTFIX
+                            </small>
+
+                            <h3>
+                                E-BIKE REPAIR
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="work-slide">
+
+                <div class="work-image work-image-2">
+
+                    <div class="work-overlay">
+
+                        <div>
+
+                            <small>
+                                VOLTFIX
+                            </small>
+
+                            <h3>
+                                ELECTRICAL SERVICE
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="work-slide">
+
+                <div class="work-image work-image-3">
+
+                    <div class="work-overlay">
+
+                        <div>
+
+                            <small>
+                                VOLTFIX
+                            </small>
+
+                            <h3>
+                                HOME SERVICE
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="work-controls">
+
+            <button type="button"
+                    id="workPrev">
+
+                ←
+
+            </button>
+
+
+            <div id="workCounter">
+
+                01 / 03
+
+            </div>
+
+
+            <button type="button"
+                    id="workNext">
+
+                →
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TEAM SECTION
+     ========================================================= -->
+
+<section id="team"
+         class="team-section section">
+
+
+    <div class="container">
+
+
+        <div class="section-intro">
+
+            <div class="section-label">
+                OUR TEAM
+            </div>
+
+
+            <h2>
+
+                The People
+
+                <span>
+                    Behind VOLTFiX
+                </span>
+
+            </h2>
+
+
+            <div class="section-number">
+                05
+            </div>
+
+        </div>
+
+
+
+        <div class="team-grid">
+
+
+            <!-- Owner -->
+
+            <article class="team-member">
+
+                <div class="team-image team-image-owner">
+
+                    <div class="team-image-text">
+                        ARSALAN
+                    </div>
+
+                </div>
+
+
+                <div class="team-info">
+
+                    <h3>
+                        Arsalan
+                    </h3>
+
+                    <span>
+                        OWNER
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- Member -->
+
+            <article class="team-member">
+
+                <div class="team-image">
+
+                    <div class="team-image-text">
+                        S.M BILAL
+                    </div>
+
+                </div>
+
+
+                <div class="team-info">
+
+                    <h3>
+                        S.M Bilal Manzoor
+                    </h3>
+
+                    <span>
+                        TEAM MEMBER
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- Member -->
+
+            <article class="team-member">
+
+                <div class="team-image">
+
+                    <div class="team-image-text">
+                        AMAN
+                    </div>
+
+                </div>
+
+
+                <div class="team-info">
+
+                    <h3>
+                        Aman Mehmood
+                    </h3>
+
+                    <span>
+                        TEAM MEMBER
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- Member -->
+
+            <article class="team-member">
+
+                <div class="team-image">
+
+                    <div class="team-image-text">
+                        NASEER
+                    </div>
+
+                </div>
+
+
+                <div class="team-info">
+
+                    <h3>
+                        Naseer Ahmed
+                    </h3>
+
+                    <span>
+                        TEAM MEMBER
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+
+        <div class="team-more">
+
+            <span>
+                OUR TEAM
+            </span>
 
             <p>
-                Home service available across selected
-                Karachi areas.
+
+                Professional people working
+                behind every VOLTFiX service.
+
             </p>
 
         </div>
 
 
-        <div class="contact-card">
+    </div>
 
-            <small>
-                SOCIAL MEDIA
-            </small>
+</section>
 
-            <h3>
-                VoltFixEbikeServices
-            </h3>
+
+
+<!-- =========================================================
+     TESTIMONIAL / REVIEW PARALLAX
+     ========================================================= -->
+
+<section id="reviews"
+         class="reviews-section parallax-section parallax-three">
+
+
+    <div class="parallax-overlay"></div>
+
+
+    <div class="container review-container">
+
+
+        <div class="section-label">
+            CUSTOMER REVIEWS
+        </div>
+
+
+        <div class="review-slider"
+             id="reviewSlider">
+
+
+            <article class="review active">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <blockquote>
+
+                    "Professional service and
+                    very helpful team."
+
+                </blockquote>
+
+                <div class="review-author">
+                    VOLTFIX CUSTOMER
+                </div>
+
+            </article>
+
+
+
+            <article class="review">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <blockquote>
+
+                    "They made the repair
+                    process easy and convenient."
+
+                </blockquote>
+
+                <div class="review-author">
+                    VOLTFIX CUSTOMER
+                </div>
+
+            </article>
+
+
+
+            <article class="review">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <blockquote>
+
+                    "Fast response and reliable
+                    e-bike service."
+
+                </blockquote>
+
+                <div class="review-author">
+                    VOLTFIX CUSTOMER
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="review-controls">
+
+            <button type="button"
+                    id="reviewPrev">
+
+                ←
+
+            </button>
+
+
+            <button type="button"
+                    id="reviewNext">
+
+                →
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BOOKING SECTION
+     ========================================================= -->
+
+<section id="booking"
+         class="booking-section section">
+
+
+    <div class="container">
+
+
+        <div class="booking-layout">
+
+
+            <div class="booking-info">
+
+
+                <div class="section-label">
+                    BOOK A SERVICE
+                </div>
+
+
+                <h2>
+
+                    Need a
+
+                    <span>
+                        repair?
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Send your details and tell us
+                    what is wrong with your electric
+                    bike.
+
+                </p>
+
+
+                <p>
+
+                    Your request will be prepared
+                    and sent to VOLTFiX through
+                    WhatsApp.
+
+                </p>
+
+
+                <div class="booking-contact">
+
+                    <span>
+                        HOME SERVICE
+                    </span>
+
+                    <strong>
+                        Karachi
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <form id="bookingForm"
+                  class="booking-form">
+
+
+                <div class="form-group">
+
+                    <label for="customerName">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        name="customerName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="customerPhone">
+                        Phone / WhatsApp
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        name="customerPhone"
+                        placeholder="03XX XXXXXXX"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="bikeBrand">
+                        Bike Brand / Model
+                    </label>
+
+                    <input
+                        type="text"
+                        id="bikeBrand"
+                        name="bikeBrand"
+                        placeholder="e.g. EVEE / YADEA"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="customerArea">
+                        Area
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerArea"
+                        name="customerArea"
+                        placeholder="Your area in Karachi"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="serviceSelect">
+                        Required Service
+                    </label>
+
+                    <select
+                        id="serviceSelect"
+                        name="serviceSelect"
+                    >
+
+                        <option value="E-Bike Repair">
+                            E-Bike Repair
+                        </option>
+
+                        <option value="Battery">
+                            Battery
+                        </option>
+
+                        <option value="Motor / Controller">
+                            Motor / Controller
+                        </option>
+
+                        <option value="Wiring / Electrical">
+                            Wiring / Electrical
+                        </option>
+
+                        <option value="Brakes / Mechanical">
+                            Brakes / Mechanical
+                        </option>
+
+                        <option value="Home Service">
+                            Home Service
+                        </option>
+
+                        <option value="General Maintenance">
+                            General Maintenance
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="bikeProblem">
+                        Problem
+                    </label>
+
+                    <textarea
+                        id="bikeProblem"
+                        name="bikeProblem"
+                        placeholder="Describe the problem with your e-bike"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary booking-submit">
+
+                    Send Request on WhatsApp
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT SECTION
+     ========================================================= -->
+
+<section id="contact"
+         class="contact-section section">
+
+
+    <div class="container">
+
+
+        <div class="section-intro">
+
+            <div class="section-label">
+                CONTACT
+            </div>
+
+
+            <h2>
+
+                Let's Get Your
+
+                <span>
+                    E-Bike Moving.
+                </span>
+
+            </h2>
+
+
+            <div class="section-number">
+                06
+            </div>
+
+        </div>
+
+
+
+        <div class="contact-grid">
+
+
+            <!-- Location -->
+
+            <div class="contact-item">
+
+                <div class="contact-label">
+                    LOCATION
+                </div>
+
+
+                <h3>
+                    Karachi, Pakistan
+                </h3>
+
+
+                <p>
+
+                    Home service available
+                    across selected Karachi areas.
+
+                </p>
+
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Karachi%2C%20Pakistan"
+                    target="_blank"
+                    rel="noopener">
+
+                    Open Google Maps →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- WhatsApp -->
+
+            <div class="contact-item">
+
+                <div class="contact-label">
+                    WHATSAPP
+                </div>
+
+
+                <h3>
+                    Contact VOLTFiX
+                </h3>
+
+
+                <p>
+
+                    Message us directly
+                    for service requests.
+
+                </p>
+
+
+                <a
+                    href="#"
+                    id="contactWhatsApp">
+
+                    WhatsApp →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Social -->
+
+            <div class="contact-item">
+
+                <div class="contact-label">
+                    SOCIAL MEDIA
+                </div>
+
+
+                <h3>
+                    VoltFixEbikeServices
+                </h3>
+
+
+                <p>
+
+                    Follow VOLTFiX for updates,
+                    repairs and electric bike content.
+
+                </p>
+
+
+                <div class="contact-socials">
+
+                    <a href="#">
+                        Facebook
+                    </a>
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        TikTok
+                    </a>
+
+                    <a href="#">
+                        YouTube
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <a href="#home"
+               class="footer-logo">
+
+                VOLT<span>FiX</span>
+
+            </a>
+
 
             <p>
-                Follow VOLTFiX on social media.
+
+                E-Bike Services
+
             </p>
 
         </div>
 
 
-        <div class="contact-card">
 
-            <small>
-                GOOGLE MAPS
-            </small>
+        <div class="footer-navigation">
 
-            <h3>
-                Find VOLTFiX
-            </h3>
+            <a href="#home">
+                Home
+            </a>
 
-            <a
-                href="https://www.google.com/maps/search/?api=1&query=Karachi%2C%20Pakistan"
-                target="_blank"
-                class="map-link"
-            >
-                Open Google Maps →
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#brands">
+                Brands
+            </a>
+
+            <a href="#work">
+                Our Work
+            </a>
+
+            <a href="#contact">
+                Contact
             </a>
 
         </div>
 
+
+
+        <div class="footer-social">
+
+            <a href="#">
+                Facebook
+            </a>
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <a href="#">
+                TikTok
+            </a>
+
+            <a href="#">
+                YouTube
+            </a>
+
+        </div>
+
+
     </div>
 
 
-    <div class="social-links">
 
-        <!-- Replace # with your actual links -->
+    <div class="footer-bottom">
 
-        <a href="#" target="_blank">
-            Facebook
-        </a>
+        <span>
 
-        <a href="#" target="_blank">
-            Instagram
-        </a>
+            © <span id="currentYear"></span>
+            VOLTFiX E-Bike Services. Developed by SivexoSoft.com
 
-        <a href="#" target="_blank">
-            TikTok
-        </a>
+        </span>
 
-        <a href="#" target="_blank">
-            YouTube
+
+        <span>
+
+            PROFESSIONAL · RELIABLE · TRUSTED
+
+        </span>
+
+
+        <a href="#home">
+
+            Back To Top ↑
+
         </a>
 
     </div>
 
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div>
-        <strong>
-            VOLTFiX E-Bike Services
-        </strong>
-    </div>
-
-    <div>
-        PROFESSIONAL · RELIABLE · TRUSTED
-    </div>
 
 </footer>
 
 
-<!-- ================= FLOATING WHATSAPP ================= -->
 
-<a
-    href="#"
-    id="whatsappButton"
-    class="whatsapp-button"
->
-    WhatsApp
+<!-- =========================================================
+     FLOATING WHATSAPP
+     ========================================================= -->
+
+<a href="#"
+   id="floatingWhatsApp"
+   class="floating-whatsapp"
+   target="_blank"
+   rel="noopener"
+   aria-label="Contact VOLTFiX on WhatsApp">
+
+    <span class="whatsapp-icon">
+        ◉
+    </span>
+
+    <span>
+        WhatsApp
+    </span>
+
 </a>
 
 
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
